@@ -13,16 +13,24 @@ function switchTab(tab) {
   }
 }
 
+let generatedOTP = "";
+let timer = 30;
+let interval;
+
 function sendOTP() {
   generatedOTP = Math.floor(10000 + Math.random() * 90000);
   alert("Your OTP: " + generatedOTP);
 
   document.getElementById("otp").innerHTML = `
-    <input id="otpInput" placeholder="Enter OTP" style="width:100%;padding:10px;margin:10px 0;border-radius:10px;border:1px solid #ccc;">
+    <input id="otpInput" placeholder="Enter OTP" class="otp-input"/>
     <button class="btn" onclick="verifyOTP()">Verify OTP</button>
+    
+    <p id="timerText">Resend OTP in 30s</p>
+    <button id="resendBtn" class="outline-btn" disabled onclick="resendOTP()">Resend OTP</button>
   `;
-}
 
+  startTimer();
+}
 function verifyOTP() {
   let userOTP = document.getElementById("otpInput").value;
 

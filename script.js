@@ -1,5 +1,8 @@
 let generatedOTP = "";
+let timer = 30;
+let interval;
 
+// SWITCH TAB
 function switchTab(tab) {
   document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -13,70 +16,13 @@ function switchTab(tab) {
   }
 }
 
-let generatedOTP = "";
-let timer = 30;
-let interval;
-
-function sendOTP() {
-  let mobile = document.getElementById("mobile")?.value;
-  let email = document.getElementById("emailInput")?.value;
-
-  // Mobile validation
-  if (mobile !== undefined && mobile !== "") {
-    if (!/^[0-9]{10}$/.test(mobile)) {
-      showPopup("❌ Enter valid 10-digit mobile number");
-      return;
-    }
-  }
-
-  // Email validation
-  if (email !== undefined && email !== "") {
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showPopup("❌ Enter valid email address");
-      return;
-    }
-  }
-
-  generatedOTP = Math.floor(10000 + Math.random() * 90000);
-
-  showPopup("📩 Your OTP: " + generatedOTP);
-
-  document.getElementById("otp").innerHTML = `
-    <input id="otpInput" placeholder="Enter OTP" class="otp-input"/>
-    <button class="btn" onclick="verifyOTP()">Verify OTP</button>
-
-    <p id="timerText">Resend OTP in 30s</p>
-    <button id="resendBtn" class="outline-btn" disabled onclick="resendOTP()">Resend OTP</button>
-  `;
-
-  startTimer();
-}
-
-  startTimer();
-}
-function verifyOTP() {
-  let userOTP = document.getElementById("otpInput").value;
-
-  if (userOTP == generatedOTP) {
-    showPopup("✅ Login Successful");
-    setTimeout(() => {
-      window.location.href = "home.html";
-    }, 1000);
-  } else {
-    showPopup("❌ Wrong OTP");
-  }
-}
-
+// LANGUAGE SWITCH
 function setLang(lang, btn) {
-
-  // remove active from all
   document.querySelectorAll('.lang-toggle button')
     .forEach(b => b.classList.remove('active'));
 
-  // add active to clicked button
   btn.classList.add('active');
 
-  // change language text
   if (lang === "mr") {
     document.getElementById("title").innerText = "स्मार्ट ट्रान्झिट मध्ये स्वागत आहे";
   } else if (lang === "hi") {
@@ -86,19 +32,57 @@ function setLang(lang, btn) {
   }
 }
 
+// SEND OTP
+function sendOTP() {
+  let mobile = document.getElementById("mobile")?.value;
+  let email = document.getElementById("emailInput")?.value;
+
+  if (mobile && !/^[0-9]{10}$/.test(mobile)) {
+    showPopup("❌ Enter valid 10-digit number");
+    return;
+  }
+
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showPopup("❌ Enter valid email");
+    return;
+  }
+
+  generatedOTP = Math.floor(10000 + Math.random() * 90000);
+  showPopup("📩 OTP: " + generatedOTP);
+
+  document.getElementById("otp").innerHTML = `
+    <input id="otpInput" placeholder="Enter OTP" class="otp-input"/>
+    <button class="btn" onclick="verifyOTP()">Verify OTP</button>
+    <p id="timerText">Resend OTP in 30s</p>
+    <button id="resendBtn" class="outline-btn" disabled onclick="resendOTP()">Resend OTP</button>
+  `;
+
+  startTimer();
+}
+
+// VERIFY OTP
+function verifyOTP() {
+  let userOTP = document.getElementById("otpInput").value;
+
+  if (userOTP == generatedOTP) {
+    showPopup("✅ Login Success");
+  } else {
+    showPopup("❌ Wrong OTP");
+  }
+}
+
+// TIMER
 function startTimer() {
   timer = 30;
-  const timerText = document.getElementById("timerText");
-  const resendBtn = document.getElementById("resendBtn");
 
   interval = setInterval(() => {
     timer--;
-    timerText.innerText = "Resend OTP in " + timer + "s";
+    document.getElementById("timerText").innerText = "Resend OTP in " + timer + "s";
 
     if (timer <= 0) {
       clearInterval(interval);
-      timerText.innerText = "You can resend OTP";
-      resendBtn.disabled = false;
+      document.getElementById("timerText").innerText = "You can resend OTP";
+      document.getElementById("resendBtn").disabled = false;
     }
   }, 1000);
 }
@@ -107,6 +91,7 @@ function resendOTP() {
   sendOTP();
 }
 
+// POPUP
 function showPopup(message) {
   let popup = document.getElementById("popup");
   popup.innerText = message;

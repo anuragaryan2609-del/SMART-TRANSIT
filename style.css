@@ -396,3 +396,13 @@ input {
 .seat.selected {
   background: #1e88e5;
 }
+.seats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 2 + aisle + 2 */
+  gap: 10px;
+}
+
+/* aisle */
+.aisle {
+  width: 20px;
+}

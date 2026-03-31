@@ -274,3 +274,18 @@ button:disabled {
   color: red;
   font-weight: bold;
 }
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.bus-card {
+  background: white;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}

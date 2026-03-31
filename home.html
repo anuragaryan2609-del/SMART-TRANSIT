@@ -22,14 +22,21 @@
 </div>
 
 <!-- SEARCH -->
-<div class="card">
+<div class="card search-card">
 
-  <input id="from" list="cities" placeholder="From">
-  <input id="to" list="cities" placeholder="To">
+  <div class="search-row">
+    <span>📍</span>
+    <input id="from" list="cities" placeholder="From (Current Location)">
+  </div>
+
+  <div class="search-row">
+    <span>📍</span>
+    <input id="to" list="cities" placeholder="To (Destination)">
+  </div>
 
   <datalist id="cities"></datalist>
 
-  <button class="btn" onclick="searchBus()">Search Buses</button>
+  <button class="btn" onclick="searchBus()">🔍 Search Buses</button>
 
 </div>
 
@@ -40,19 +47,27 @@
 <div class="grid">
 
   <div class="feature-card" onclick="go('track.html')">
-    📍 Track Bus
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+    <h3>Track Bus</h3>
+    <p>Live tracking</p>
   </div>
 
   <div class="feature-card" onclick="go('booking.html')">
-    🎟️ Book Ticket
+    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png">
+    <h3>Book Ticket</h3>
+    <p>Book now</p>
   </div>
 
   <div class="feature-card" onclick="go('issue.html')">
-    ⚙️ Raise Issue
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png">
+    <h3>Raise Issue</h3>
+    <p>Report issue</p>
   </div>
 
   <div class="feature-card" onclick="go('food.html')">
-    🍔 Order Food
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+    <h3>Order Food</h3>
+    <p>Coming soon</p>
   </div>
 
 </div>

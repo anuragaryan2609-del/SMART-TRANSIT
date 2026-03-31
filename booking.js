@@ -3,19 +3,31 @@ let container = document.getElementById("seatContainer");
 let selectedSeats = [];
 let price = 300;
 
-// create 40 seats (2x2 layout)
-for(let i=1;i<=40;i++){
+// create 10 rows (total 40 seats)
+let seatNumber = 1;
 
+for(let row=1; row<=10; row++){
+
+  // LEFT SIDE (2 seats)
+  for(let i=0; i<2; i++){
+    createSeat(seatNumber++);
+  }
+
+  // AISLE
+  let aisle = document.createElement("div");
+  aisle.classList.add("aisle");
+  container.appendChild(aisle);
+
+  // RIGHT SIDE (2 seats)
+  for(let i=0; i<2; i++){
+    createSeat(seatNumber++);
+  }
+}
+
+function createSeat(num){
   let seat = document.createElement("div");
   seat.classList.add("seat");
-  seat.innerText = i;
-
-  // aisle gap
-  if(i % 4 === 3){
-    let gap = document.createElement("div");
-    gap.classList.add("aisle");
-    container.appendChild(gap);
-  }
+  seat.innerText = num;
 
   // random booked
   if(Math.random() < 0.3){
@@ -28,10 +40,10 @@ for(let i=1;i<=40;i++){
 
     if(seat.classList.contains("selected")){
       seat.classList.remove("selected");
-      selectedSeats = selectedSeats.filter(s => s != i);
+      selectedSeats = selectedSeats.filter(s => s != num);
     } else {
       seat.classList.add("selected");
-      selectedSeats.push(i);
+      selectedSeats.push(num);
     }
 
     update();
@@ -53,7 +65,5 @@ function goPayment(){
     alert("Select at least 1 seat");
     return;
   }
-  localStorage.setItem("seats", selectedSeats);
-  localStorage.setItem("amount", selectedSeats.length * price);
   window.location.href = "payment.html";
 }

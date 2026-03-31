@@ -13,12 +13,20 @@
 
 <h2>🚌 Select Your Seat</h2>
 
-<div id="seatContainer" class="seat-grid"></div>
+<!-- BUS -->
+<div class="bus">
 
+  <div class="driver">🧑‍✈️ Driver</div>
+
+  <div id="seatContainer" class="seats"></div>
+
+</div>
+
+<!-- SUMMARY -->
 <div class="card">
-  <p>Selected Seats: <span id="selectedSeats">None</span></p>
-  <p>Total Price: ₹<span id="totalPrice">0</span></p>
-  <button class="btn">Proceed to Pay</button>
+  <p>Seats: <span id="selectedSeats">None</span></p>
+  <p>Total: ₹<span id="totalPrice">0</span></p>
+  <button class="btn" onclick="goPayment()">Proceed to Pay</button>
 </div>
 
 </div>

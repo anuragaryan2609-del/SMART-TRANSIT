@@ -183,3 +183,29 @@ button:disabled {
   opacity: 1;
   bottom: 40px;
 }
+
+.popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.popup.show {
+  opacity: 1;
+}
+
+.otp-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+

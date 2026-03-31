@@ -34,7 +34,16 @@ function verifyOTP() {
   }
 }
 
-function setLang(lang) {
+function setLang(lang, btn) {
+
+  // remove active from all
+  document.querySelectorAll('.lang-toggle button')
+    .forEach(b => b.classList.remove('active'));
+
+  // add active to clicked button
+  btn.classList.add('active');
+
+  // change language text
   if (lang === "mr") {
     document.getElementById("title").innerText = "स्मार्ट ट्रान्झिट मध्ये स्वागत आहे";
   } else if (lang === "hi") {

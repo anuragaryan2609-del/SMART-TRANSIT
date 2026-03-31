@@ -65,7 +65,12 @@ function verifyOTP() {
   let userOTP = document.getElementById("otpInput").value;
 
   if (userOTP == generatedOTP) {
-    showPopup("✅ Login Success");
+    showPopup("✅ Login Successful");
+
+    setTimeout(() => {
+      window.location.href = "home.html";
+    }, 1000);
+
   } else {
     showPopup("❌ Wrong OTP");
   }

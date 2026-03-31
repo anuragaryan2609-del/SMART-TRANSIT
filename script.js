@@ -34,9 +34,11 @@ function setLang(lang, btn) {
 
 // SEND OTP
 function sendOTP() {
+
   let mobile = document.getElementById("mobile")?.value;
   let email = document.getElementById("emailInput")?.value;
 
+  // Validate
   if (mobile && !/^[0-9]{10}$/.test(mobile)) {
     showPopup("❌ Enter valid 10-digit number");
     return;
@@ -47,12 +49,22 @@ function sendOTP() {
     return;
   }
 
+  if (!mobile && !email) {
+    showPopup("❌ Enter mobile or email");
+    return;
+  }
+
+  // Generate OTP
   generatedOTP = Math.floor(10000 + Math.random() * 90000);
   showPopup("📩 OTP: " + generatedOTP);
 
-  document.getElementById("otp").innerHTML = `
+  // Replace BOTH sections correctly
+  let container = mobile ? "otp" : "email";
+
+  document.getElementById(container).innerHTML = `
     <input id="otpInput" placeholder="Enter OTP" class="otp-input"/>
     <button class="btn" onclick="verifyOTP()">Verify OTP</button>
+
     <p id="timerText">Resend OTP in 30s</p>
     <button id="resendBtn" class="outline-btn" disabled onclick="resendOTP()">Resend OTP</button>
   `;

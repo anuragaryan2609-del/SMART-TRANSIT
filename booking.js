@@ -1,16 +1,23 @@
-let seatContainer = document.getElementById("seatContainer");
+let container = document.getElementById("seatContainer");
 
 let selectedSeats = [];
-let pricePerSeat = 300;
+let price = 300;
 
-// create 40 seats
+// create 40 seats (2x2 layout)
 for(let i=1;i<=40;i++){
 
   let seat = document.createElement("div");
   seat.classList.add("seat");
   seat.innerText = i;
 
-  // random booked seats
+  // aisle gap
+  if(i % 4 === 3){
+    let gap = document.createElement("div");
+    gap.classList.add("aisle");
+    container.appendChild(gap);
+  }
+
+  // random booked
   if(Math.random() < 0.3){
     seat.classList.add("booked");
   }
@@ -27,16 +34,26 @@ for(let i=1;i<=40;i++){
       selectedSeats.push(i);
     }
 
-    updateSummary();
+    update();
   }
 
-  seatContainer.appendChild(seat);
+  container.appendChild(seat);
 }
 
-function updateSummary(){
-  document.getElementById("selectedSeats").innerText = 
+function update(){
+  document.getElementById("selectedSeats").innerText =
     selectedSeats.length ? selectedSeats.join(", ") : "None";
 
-  document.getElementById("totalPrice").innerText = 
-    selectedSeats.length * pricePerSeat;
+  document.getElementById("totalPrice").innerText =
+    selectedSeats.length * price;
+}
+
+function goPayment(){
+  if(selectedSeats.length === 0){
+    alert("Select at least 1 seat");
+    return;
+  }
+  localStorage.setItem("seats", selectedSeats);
+  localStorage.setItem("amount", selectedSeats.length * price);
+  window.location.href = "payment.html";
 }

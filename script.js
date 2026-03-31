@@ -104,3 +104,13 @@ function startTimer() {
 function resendOTP() {
   sendOTP();
 }
+
+function showPopup(message) {
+  let popup = document.getElementById("popup");
+  popup.innerText = message;
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2000);
+}

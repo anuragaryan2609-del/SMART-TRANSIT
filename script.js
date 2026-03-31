@@ -60,3 +60,24 @@ function setLang(lang, btn) {
     document.getElementById("title").innerText = "Welcome to Smart Transit";
   }
 }
+
+function startTimer() {
+  timer = 30;
+  const timerText = document.getElementById("timerText");
+  const resendBtn = document.getElementById("resendBtn");
+
+  interval = setInterval(() => {
+    timer--;
+    timerText.innerText = "Resend OTP in " + timer + "s";
+
+    if (timer <= 0) {
+      clearInterval(interval);
+      timerText.innerText = "You can resend OTP";
+      resendBtn.disabled = false;
+    }
+  }, 1000);
+}
+
+function resendOTP() {
+  sendOTP();
+}

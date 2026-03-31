@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Smart Transit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="home-header">
+  <div>
+    <h2>Hello, User 👋</h2>
+    <p>Where are you traveling today?</p>
+  </div>
+
+  <div class="icons">
+    🔔 👤
+  </div>
+</div>
+
+<!-- SEARCH CARD -->
+<div class="card">
+
+  <div class="input-box">
+    <span>📍</span>
+    <input placeholder="From (Current Location)">
+  </div>
+
+  <div class="input-box">
+    <span>📍</span>
+    <input placeholder="To (Destination)">
+  </div>
+
+  <button class="btn">Search Buses</button>
+
+</div>
+
+<!-- FEATURES -->
+<div class="grid">
+
+  <div class="feature-card" onclick="go('track.html')">
+    <h3>📍 Track Bus</h3>
+    <p>Live tracking</p>
+  </div>
+
+  <div class="feature-card" onclick="go('booking.html')">
+    <h3>🎟️ Book Ticket</h3>
+    <p>Book now</p>
+  </div>
+
+  <div class="feature-card" onclick="go('issue.html')">
+    <h3>⚙️ Raise Issue</h3>
+    <p>Report problem</p>
+  </div>
+
+  <div class="feature-card" onclick="go('food.html')">
+    <h3>🍔 Order Food</h3>
+    <p>Coming soon</p>
+  </div>
+
+</div>
+
+<!-- FOOD BANNER -->
+<div class="food-banner">
+  <h3>Hungry during travel?</h3>
+  <p>Order food to your bus stop</p>
+  <button class="btn">Order Now</button>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="active">🏠 Home</div>
+  <div onclick="go('track.html')">📍 Track</div>
+  <div onclick="go('booking.html')">🎟️ Tickets</div>
+  <div onclick="go('food.html')">🛍️ Orders</div>
+  <div>👤 Profile</div>
+</div>
+
+</div>
+
+<script>
+function go(page){
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>

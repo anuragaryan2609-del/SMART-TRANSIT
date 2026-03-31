@@ -1,22 +1,37 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  font-family: Arial;
   background: #f5f6fa;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* MOBILE CONTAINER */
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px;
 }
 
 /* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  align-items: center;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: bold;
-  font-size: 18px;
 }
 
+.logo img {
+  width: 30px;
+}
+
+/* LANGUAGE */
 .lang-toggle button {
   border: none;
   padding: 5px 10px;
@@ -31,31 +46,32 @@ body {
 }
 
 /* HERO */
-.hero img {
-  width: 120px;
+.bus-img {
+  width: 100%;
+  max-width: 220px;
+  display: block;
+  margin: 20px auto;
 }
 
-.hero h1 {
-  margin: 10px 0;
+h1 {
+  font-size: 22px;
 }
 
-.hero p {
+p {
   color: gray;
 }
 
 /* CARD */
 .card {
   background: white;
-  margin: 20px;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* TABS */
 .tabs {
   display: flex;
-  margin-bottom: 10px;
 }
 
 .tab {
@@ -90,7 +106,7 @@ body {
 .btn {
   width: 100%;
   padding: 12px;
-  background: red;
+  background: linear-gradient(45deg, red, darkred);
   color: white;
   border: none;
   border-radius: 10px;
@@ -105,7 +121,7 @@ body {
   border-radius: 10px;
 }
 
-/* TAB CONTENT */
+/* TAB */
 .tab-content {
   display: none;
 }
@@ -114,9 +130,21 @@ body {
   display: block;
 }
 
-/* FOOTER */
 footer {
   margin-top: 20px;
   font-size: 12px;
   color: gray;
+}
+
+/* DESKTOP FIX */
+@media (min-width: 768px) {
+  body {
+    background: #eaeaea;
+  }
+
+  .container {
+    margin-top: 30px;
+    border-radius: 20px;
+    background: #f5f6fa;
+  }
 }

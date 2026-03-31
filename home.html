@@ -14,62 +14,47 @@
 <!-- HEADER -->
 <div class="home-header">
   <div>
-    <h2>Hello, User 👋</h2>
+    <h2>Hello, Anuragaryan 👋</h2>
     <p>Where are you traveling today?</p>
   </div>
 
-  <div class="icons">
-    🔔 👤
-  </div>
+  <div onclick="go('profile.html')" style="cursor:pointer;">👤</div>
 </div>
 
-<!-- SEARCH CARD -->
+<!-- SEARCH -->
 <div class="card">
 
-  <div class="input-box">
-    <span>📍</span>
-    <input placeholder="From (Current Location)">
-  </div>
+  <input id="from" list="cities" placeholder="From">
+  <input id="to" list="cities" placeholder="To">
 
-  <div class="input-box">
-    <span>📍</span>
-    <input placeholder="To (Destination)">
-  </div>
+  <datalist id="cities"></datalist>
 
-  <button class="btn">Search Buses</button>
+  <button class="btn" onclick="searchBus()">Search Buses</button>
 
 </div>
+
+<!-- RESULTS -->
+<div id="results"></div>
 
 <!-- FEATURES -->
 <div class="grid">
 
   <div class="feature-card" onclick="go('track.html')">
-    <h3>📍 Track Bus</h3>
-    <p>Live tracking</p>
+    📍 Track Bus
   </div>
 
   <div class="feature-card" onclick="go('booking.html')">
-    <h3>🎟️ Book Ticket</h3>
-    <p>Book now</p>
+    🎟️ Book Ticket
   </div>
 
   <div class="feature-card" onclick="go('issue.html')">
-    <h3>⚙️ Raise Issue</h3>
-    <p>Report problem</p>
+    ⚙️ Raise Issue
   </div>
 
   <div class="feature-card" onclick="go('food.html')">
-    <h3>🍔 Order Food</h3>
-    <p>Coming soon</p>
+    🍔 Order Food
   </div>
 
-</div>
-
-<!-- FOOD BANNER -->
-<div class="food-banner">
-  <h3>Hungry during travel?</h3>
-  <p>Order food to your bus stop</p>
-  <button class="btn">Order Now</button>
 </div>
 
 <!-- NAVBAR -->
@@ -77,17 +62,12 @@
   <div class="active">🏠 Home</div>
   <div onclick="go('track.html')">📍 Track</div>
   <div onclick="go('booking.html')">🎟️ Tickets</div>
-  <div onclick="go('food.html')">🛍️ Orders</div>
-  <div>👤 Profile</div>
+  <div onclick="go('orders.html')">🛍️ Orders</div>
+  <div onclick="go('profile.html')">👤 Profile</div>
 </div>
 
 </div>
 
-<script>
-function go(page){
-  window.location.href = page;
-}
-</script>
-
+<script src="home.js"></script>
 </body>
 </html>

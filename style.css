@@ -349,3 +349,50 @@ input {
 .seat.selected {
   background: blue;
 }
+/* BUS BODY */
+.bus {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+/* DRIVER */
+.driver {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* SEATS GRID */
+.seats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+/* AISLE */
+.aisle {
+  width: 10px;
+}
+
+/* SEAT */
+.seat {
+  background: #4caf50;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* BOOKED */
+.seat.booked {
+  background: #e53935;
+  cursor: not-allowed;
+}
+
+/* SELECTED */
+.seat.selected {
+  background: #1e88e5;
+}

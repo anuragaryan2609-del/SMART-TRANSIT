@@ -25,6 +25,7 @@ function go(page){
 
 // SEARCH FUNCTION
 function searchBus(){
+
   let from = document.getElementById("from").value;
   let to = document.getElementById("to").value;
 
@@ -36,17 +37,23 @@ function searchBus(){
   let results = document.getElementById("results");
   results.innerHTML = "<h3>Available Buses</h3>";
 
-  // generate 50 buses
   for(let i=1;i<=50;i++){
-    let time = Math.floor(Math.random()*24)+":00";
+
+    let hours = Math.floor(Math.random()*24);
+    let mins = Math.floor(Math.random()*60);
+    let time = `${hours}:${mins < 10 ? '0'+mins : mins}`;
+
     let price = Math.floor(Math.random()*500)+200;
+
+    let busNo = "MH15KW" + Math.floor(1000 + Math.random()*9000);
 
     results.innerHTML += `
       <div class="bus-card">
-        🚌 Bus #${100+i} <br>
+        <b>🚌 ${busNo}</b><br>
         ${from} → ${to} <br>
-        Time: ${time} <br>
-        Price: ₹${price}
+        🕒 Departure: ${time} <br>
+        💺 Seats Available: ${Math.floor(Math.random()*40)+10} <br>
+        💰 Price: ₹${price}
       </div>
     `;
   }

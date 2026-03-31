@@ -18,16 +18,39 @@ let timer = 30;
 let interval;
 
 function sendOTP() {
+  let mobile = document.getElementById("mobile")?.value;
+  let email = document.getElementById("emailInput")?.value;
+
+  // Mobile validation
+  if (mobile !== undefined && mobile !== "") {
+    if (!/^[0-9]{10}$/.test(mobile)) {
+      showPopup("❌ Enter valid 10-digit mobile number");
+      return;
+    }
+  }
+
+  // Email validation
+  if (email !== undefined && email !== "") {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showPopup("❌ Enter valid email address");
+      return;
+    }
+  }
+
   generatedOTP = Math.floor(10000 + Math.random() * 90000);
-  alert("Your OTP: " + generatedOTP);
+
+  showPopup("📩 Your OTP: " + generatedOTP);
 
   document.getElementById("otp").innerHTML = `
     <input id="otpInput" placeholder="Enter OTP" class="otp-input"/>
     <button class="btn" onclick="verifyOTP()">Verify OTP</button>
-    
+
     <p id="timerText">Resend OTP in 30s</p>
     <button id="resendBtn" class="outline-btn" disabled onclick="resendOTP()">Resend OTP</button>
   `;
+
+  startTimer();
+}
 
   startTimer();
 }

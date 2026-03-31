@@ -9,9 +9,11 @@
 
 <body>
 
+<div class="container">
+
 <header class="header">
   <div class="logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
+    <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png">
     <span>Smart Transit</span>
   </div>
 
@@ -23,7 +25,7 @@
 </header>
 
 <section class="hero">
-  <img src="https://cdn-icons-png.flaticon.com/512/61/61231.png">
+  <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" class="bus-img">
   <h1 id="title">Welcome to Smart Transit</h1>
   <p>Track • Book • Travel Smarter</p>
 </section>
@@ -35,29 +37,35 @@
     <button class="tab" onclick="switchTab('email')">Email Login</button>
   </div>
 
+  <!-- OTP -->
   <div id="otp" class="tab-content active">
     <div class="input-box">
       <span>+91</span>
-      <input id="mobile" placeholder="Enter Mobile Number">
+      <input placeholder="Enter Mobile Number">
     </div>
     <button class="btn" onclick="sendOTP()">Send OTP</button>
   </div>
 
+  <!-- EMAIL -->
   <div id="email" class="tab-content">
     <div class="input-box">
-      <input id="emailInput" placeholder="Enter Email">
+      <input placeholder="Enter Email">
     </div>
     <button class="btn" onclick="sendOTP()">Login</button>
   </div>
 
   <p>New to Smart Transit?</p>
-  <button class="outline-btn" onclick="window.location.href='create.html'">Create Account</button>
+  <button class="outline-btn" onclick="window.location.href='create.html'">
+    Create Account
+  </button>
 
 </div>
 
 <footer>
   <p>Privacy Policy | Terms & Conditions | Help & Support</p>
 </footer>
+
+</div>
 
 <script src="script.js"></script>
 </body>

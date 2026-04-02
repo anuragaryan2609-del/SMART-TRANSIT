@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seat Booking</title>
+<title>Booking</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,28 +9,18 @@
 
 <div class="container">
 
-<h2>🚌 Select Your Seat</h2>
+<h2>Select Seats</h2>
 
-<!-- BUS -->
 <div class="bus">
-
-  <div class="driver">🧑‍✈️ Driver</div>
-
+  <div class="driver">Driver</div>
   <div id="seatContainer" class="seats"></div>
-
 </div>
 
-<!-- PASTE HERE 👇 -->
-<p style="font-size:12px; text-align:center;">
+<p style="text-align:center;font-size:12px;">
 🟢 Available | 🔴 Booked | 🔵 Selected
 </p>
 
-<!-- SUMMARY -->
-<div class="card">
-  <p>Seats: <span id="selectedSeats">None</span></p>
-  <p>Total: ₹<span id="totalPrice">0</span></p>
-  <button class="btn" onclick="goPayment()">Proceed to Pay</button>
-</div>
+<button class="btn" onclick="goPay()">Proceed</button>
 
 </div>
 

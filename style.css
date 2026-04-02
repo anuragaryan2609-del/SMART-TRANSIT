@@ -1,114 +1,86 @@
 body {
-  background: #f2f2f2;
-  font-family: Arial;
-  margin: 0;
+  background:#f2f2f2;
+  font-family:Arial;
 }
 
 .container {
-  max-width: 400px;
-  margin: auto;
-  padding: 15px;
+  max-width:400px;
+  margin:auto;
+  padding:15px;
 }
 
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-weight: bold;
-}
-
-.lang button {
-  border: none;
-  padding: 5px 10px;
-  margin-left: 5px;
-  border-radius: 10px;
-  background: #eee;
-}
-
-.lang .active {
-  background: red;
-  color: white;
-}
-
-/* IMAGE */
 .bus-img {
-  width: 200px;
-  display: block;
-  margin: 20px auto;
+  width:200px;
+  display:block;
+  margin:auto;
 }
 
-/* TEXT */
-h2 {
-  text-align: center;
-}
-
-.sub {
-  text-align: center;
-  color: gray;
-}
-
-/* CARD */
 .card {
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  margin-top: 15px;
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
 }
 
-/* TABS */
-.tabs {
-  display: flex;
-}
-
-.tab {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  background: #eee;
-}
-
-.tab.active {
-  background: red;
-  color: white;
-}
-
-/* INPUT */
 input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  width:100%;
+  padding:10px;
+  margin-top:10px;
 }
 
-/* BUTTON */
 .btn {
-  width: 100%;
-  padding: 12px;
-  background: red;
-  color: white;
-  border: none;
-  margin-top: 10px;
-  border-radius: 10px;
+  width:100%;
+  padding:12px;
+  background:red;
+  color:white;
+  border:none;
+  margin-top:10px;
 }
 
-/* OUTLINE */
-.outline {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid red;
-  background: none;
-  color: red;
-  border-radius: 10px;
-  margin-top: 10px;
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
-.small {
-  text-align: center;
-  margin-top: 10px;
+.feature-card {
+  background:white;
+  padding:10px;
+  text-align:center;
+  border-radius:10px;
 }
 
+.bus-card {
+  background:white;
+  padding:10px;
+  margin-top:10px;
+  border-radius:10px;
+}
+
+/* SEATS */
+.seats {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+
+.seat {
+  background:green;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+
+.booked { background:red; }
+.selected { background:blue; }
+
+.map {
+  height:200px;
+  background:#ddd;
+  position:relative;
+}
+
+#bus {
+  position:absolute;
+  top:50%;
+}

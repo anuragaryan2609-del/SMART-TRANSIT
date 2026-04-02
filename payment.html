@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,36 +9,20 @@
 
 <div class="container">
 
-<h2>💳 Payment</h2>
+<h2>Payment</h2>
 
 <div class="card">
-
-  <p>Total Amount: ₹<span id="amount">0</span></p>
-
-  <h4>Select Payment Method</h4>
-
-  <button class="btn" onclick="pay('upi')">UPI</button>
-  <button class="btn" onclick="pay('card')">Credit/Debit Card</button>
-  <button class="btn" onclick="pay('wallet')">Wallet</button>
-
+  <p>Total: ₹1200</p>
+  <button class="btn" onclick="pay()">Pay Now</button>
 </div>
 
 </div>
 
 <script>
-
-let amount = localStorage.getItem("amount") || 0;
-document.getElementById("amount").innerText = amount;
-
-function pay(method){
-  alert("Processing " + method + " payment...");
-
-  setTimeout(()=>{
-    alert("Payment Successful ✅");
-    window.location.href = "ticket.html";
-  },1500);
+function pay(){
+  alert("Payment Success ✅");
+  window.location.href="ticket.html";
 }
-
 </script>
 
 </body>

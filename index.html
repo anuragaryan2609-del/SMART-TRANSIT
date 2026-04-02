@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,65 +11,58 @@
 
 <div class="container">
 
-<header class="header">
-  <div class="logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png">
-    <span>Smart Transit</span>
-  </div>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">🚌 Smart Transit</div>
 
-  <div class="lang-toggle">
-    <button onclick="setLang('en', this)" class="active">EN</button>
-    <button onclick="setLang('mr', this)">मराठी</button>
-    <button onclick="setLang('hi', this)">हिंदी</button>
-  </div>
-</header>
-
-<section class="hero">
-  <img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" class="bus-img">
-  <h1 id="title">Welcome to Smart Transit</h1>
-  <p>Track • Book • Travel Smarter</p>
-</section>
-
-<div class="card">
-
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('otp')">Mobile OTP</button>
-    <button class="tab" onclick="switchTab('email')">Email Login</button>
-  </div>
-
-  <!-- OTP -->
-  <div id="otp" class="tab-content active">
-    <div class="input-box">
-      <span>+91</span>
-      <input id="mobile" type="tel" maxlength="10" placeholder="Enter Mobile Number">
+    <div class="lang">
+      <button class="active">EN</button>
+      <button>मराठी</button>
+      <button>हिंदी</button>
     </div>
-    <button class="btn" onclick="sendOTP()">Login</button>
   </div>
 
-  <!-- EMAIL -->
-  <div id="email" class="tab-content">
-    <div class="input-box">
-      <input id="emailInput" type="email" placeholder="Enter Email">
+  <!-- SINGLE LOGO (FIXED) -->
+  <img src="https://cdn-icons-png.flaticon.com/512/61/61231.png" class="bus-img">
+
+  <!-- TITLE -->
+  <h2>Welcome to Smart Transit</h2>
+  <p class="sub">Track • Book • Travel Smarter</p>
+
+  <!-- LOGIN CARD -->
+  <div class="card">
+
+    <div class="tabs">
+      <button class="tab active" onclick="showMobile()">Mobile OTP</button>
+      <button class="tab" onclick="showEmail()">Email Login</button>
     </div>
-    <button class="btn" onclick="sendOTP()">Login</button>
+
+    <!-- MOBILE -->
+    <div id="mobileBox">
+      <input id="mobile" placeholder="+91 Enter Mobile Number" maxlength="10">
+      <button class="btn" onclick="sendOTP()">Send OTP</button>
+    </div>
+
+    <!-- EMAIL -->
+    <div id="emailBox" style="display:none;">
+      <input id="email" placeholder="Enter Email">
+      <button class="btn" onclick="loginEmail()">Login</button>
+    </div>
+
+    <!-- OTP -->
+    <div id="otpBox" style="display:none;">
+      <input id="otp" placeholder="Enter 5-digit OTP" maxlength="5">
+      <button class="btn" onclick="verifyOTP()">Verify OTP</button>
+    </div>
+
   </div>
 
-  <p>New to Smart Transit?</p>
-  <button class="outline-btn" onclick="window.location.href='create.html'">
-    Create Account
-  </button>
+  <p class="small">New to Smart Transit?</p>
+  <button class="outline">Create Account</button>
 
 </div>
-
-<footer>
-  <p>Privacy Policy | Terms & Conditions | Help & Support</p>
-</footer>
-
-</div>
-
-<!-- POPUP -->
-<div id="popup" class="popup"></div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

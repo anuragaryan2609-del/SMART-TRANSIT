@@ -6,8 +6,6 @@ function sendOTP(){
     return;
   }
 
-  alert("OTP Sent ✅ (Auto Login)");
-
   setTimeout(()=>{
     window.location.href = "home.html";
   },1000);

@@ -12,18 +12,38 @@
 <h2>Hello Anuragaryan 👋</h2>
 
 <div class="card">
-  <input id="from" placeholder="From">
-  <input id="to" placeholder="To">
-  <button class="btn" onclick="searchBus()">Search Buses</button>
+
+<input list="cities" id="from" placeholder="From">
+<input list="cities" id="to" placeholder="To">
+
+<datalist id="cities">
+<option>Mumbai</option>
+<option>Pune</option>
+<option>Nashik</option>
+<option>Nagpur</option>
+<option>Aurangabad</option>
+<option>Kolhapur</option>
+<option>Solapur</option>
+<option>Satara</option>
+<option>Thane</option>
+<option>Jalgaon</option>
+<option>Latur</option>
+<option>Amravati</option>
+</datalist>
+
+<button class="btn" onclick="searchBus()">🔍 Search Buses</button>
+
 </div>
 
 <div id="busList"></div>
 
 <div class="grid">
-  <div class="feature-card" onclick="location.href='track.html'">📍 Track</div>
-  <div class="feature-card" onclick="location.href='booking.html'">🎟️ Book</div>
-  <div class="feature-card" onclick="location.href='ticket.html'">📄 Tickets</div>
-  <div class="feature-card" onclick="location.href='admin.html'">⚙️ Admin</div>
+<div class="feature-card" onclick="location.href='track.html'">📍 Track</div>
+<div class="feature-card" onclick="location.href='booking.html'">🎟️ Book</div>
+<div class="feature-card" onclick="location.href='ticket.html'">📄 Tickets</div>
+<div class="feature-card" onclick="location.href='report.html'">⚠️ Report</div>
+<div class="feature-card" onclick="location.href='food.html'">🍔 Food</div>
+<div class="feature-card" onclick="location.href='profile.html'">👤 Profile</div>
 </div>
 
 </div>
@@ -31,22 +51,18 @@
 <script>
 function searchBus(){
   let list = document.getElementById("busList");
-  list.innerHTML = "";
+  list.innerHTML="";
 
-  for(let i=1;i<=50;i++){
-    let bus = document.createElement("div");
-    bus.className = "bus-card";
-    bus.innerHTML = `
-      <b>MH15KW${1000+i}</b><br>
-      Pune → Mumbai<br>
-      Time: ${6+i}:00 AM<br>
-      <button onclick="location.href='booking.html'">Book</button>
-    `;
-    list.appendChild(bus);
+  for(let i=1;i<=20;i++){
+    list.innerHTML += `
+    <div class="bus-card">
+    <b>MH15KW${1000+i}</b><br>
+    ${document.getElementById("from").value} → ${document.getElementById("to").value}<br>
+    Time: ${6+i}:00 AM<br>
+    <button onclick="location.href='booking.html'">Book</button>
+    </div>`;
   }
 }
-<div class="feature-card" onclick="location.href='report.html'">⚠️ Report</div>
-<div class="feature-card" onclick="location.href='food.html'">🍔 Food</div>
 </script>
 
 </body>

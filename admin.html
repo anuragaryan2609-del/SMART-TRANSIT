@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+<title>Admin</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,28 +9,23 @@
 
 <div class="container">
 
-<h2>📊 Admin Dashboard</h2>
+<h2>Admin</h2>
 
-<div class="card">
-  <p>Total Buses: 120</p>
-  <p>Active Routes: 45</p>
-  <p>Tickets Booked Today: 320</p>
-</div>
+<input id="busNo" placeholder="Bus Number">
+<button class="btn" onclick="add()">Add Bus</button>
 
-<div class="card">
-  <h3>Add New Bus</h3>
-  <input id="busNo" placeholder="Bus Number">
-  <button class="btn" onclick="addBus()">Add Bus</button>
-</div>
-
-<div class="card">
-  <h3>Bus List</h3>
-  <ul id="busList"></ul>
-</div>
+<ul id="list"></ul>
 
 </div>
 
-<script src="admin.js"></script>
+<script>
+function add(){
+  let v=document.getElementById("busNo").value;
+  let li=document.createElement("li");
+  li.innerText=v;
+  document.getElementById("list").appendChild(li);
+}
+</script>
 
 </body>
 </html>

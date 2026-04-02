@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Transit</title>
 <link rel="stylesheet" href="style.css">
@@ -11,58 +10,24 @@
 
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="logo">🚌 Smart Transit</div>
+<div class="header">
+  <b>🚌 Smart Transit</b>
+</div>
 
-    <div class="lang">
-      <button class="active">EN</button>
-      <button>मराठी</button>
-      <button>हिंदी</button>
-    </div>
-  </div>
+<img src="https://cdn-icons-png.flaticon.com/512/61/61231.png" class="bus-img">
 
-  <!-- SINGLE LOGO (FIXED) -->
-  <img src="https://cdn-icons-png.flaticon.com/512/61/61231.png" class="bus-img">
+<h2>Welcome to Smart Transit</h2>
+<p class="sub">Track • Book • Travel Smarter</p>
 
-  <!-- TITLE -->
-  <h2>Welcome to Smart Transit</h2>
-  <p class="sub">Track • Book • Travel Smarter</p>
+<div class="card">
 
-  <!-- LOGIN CARD -->
-  <div class="card">
+<input id="mobile" placeholder="+91 Enter Mobile Number" maxlength="10">
+<button class="btn" onclick="sendOTP()">Send OTP</button>
 
-    <div class="tabs">
-      <button class="tab active" onclick="showMobile()">Mobile OTP</button>
-      <button class="tab" onclick="showEmail()">Email Login</button>
-    </div>
-
-    <!-- MOBILE -->
-    <div id="mobileBox">
-      <input id="mobile" placeholder="+91 Enter Mobile Number" maxlength="10">
-      <button class="btn" onclick="sendOTP()">Send OTP</button>
-    </div>
-
-    <!-- EMAIL -->
-    <div id="emailBox" style="display:none;">
-      <input id="email" placeholder="Enter Email">
-      <button class="btn" onclick="loginEmail()">Login</button>
-    </div>
-
-    <!-- OTP -->
-    <div id="otpBox" style="display:none;">
-      <input id="otp" placeholder="Enter 5-digit OTP" maxlength="5">
-      <button class="btn" onclick="verifyOTP()">Verify OTP</button>
-    </div>
-
-  </div>
-
-  <p class="small">New to Smart Transit?</p>
-  <button class="outline">Create Account</button>
+</div>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>

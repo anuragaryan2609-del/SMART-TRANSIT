@@ -8,9 +8,8 @@
 
 /* BODY */
 body {
-  background: #f1f3f6;
-  display: flex;
-  justify-content: center;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
 }
 
 /* CONTAINER */
@@ -50,14 +49,12 @@ body {
 .btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #ff3b3b, #d60000);
+  background: red;
   color: white;
   border: none;
-  border-radius: 12px;
-  font-weight: bold;
+  border-radius: 10px;
   margin-top: 10px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .btn:hover {
@@ -218,6 +215,12 @@ input {
   font-size: 28px;
   animation: moveBus 5s linear infinite;
 }
+img {
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+}
 
 @keyframes moveBus {
   from { left: 0; }
@@ -242,15 +245,4 @@ input {
   opacity: 1;
 }
 
-/* DESKTOP CENTER */
-@media (min-width: 768px) {
-  body {
-    background: #ddd;
-  }
 
-  .container {
-    margin-top: 20px;
-    background: #f1f3f6;
-    border-radius: 20px;
-  }
-}

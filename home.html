@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - Smart Transit</title>
+<title>Home</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,82 +9,43 @@
 
 <div class="container">
 
-<!-- HEADER -->
-<div class="home-header">
-  <div>
-    <h2>Hello, Anuragaryan 👋</h2>
-    <p>Where are you traveling today?</p>
-  </div>
+<h2>Hello Anuragaryan 👋</h2>
 
-  <div onclick="go('profile.html')" style="cursor:pointer;">👤</div>
-</div>
-<div class="icons">
-  <span style="font-size:18px;">🔔</span>
-  <span style="font-size:18px;">👤</span>
-</div>
-  
-<!-- SEARCH -->
-<div class="card search-card">
-
-  <div class="search-row">
-    <span>📍</span>
-    <input id="from" list="cities" placeholder="From (Current Location)">
-  </div>
-
-  <div class="search-row">
-    <span>📍</span>
-    <input id="to" list="cities" placeholder="To (Destination)">
-  </div>
-
-  <datalist id="cities"></datalist>
-
-  <button class="btn" onclick="searchBus()">🔍 Search Buses</button>
-
+<div class="card">
+  <input id="from" placeholder="From">
+  <input id="to" placeholder="To">
+  <button class="btn" onclick="searchBus()">Search Buses</button>
 </div>
 
-<!-- RESULTS -->
-<div id="results"></div>
+<div id="busList"></div>
 
-<!-- FEATURES -->
 <div class="grid">
-
-  <div class="feature-card" onclick="go('track.html')">
-    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
-    <h3>Track Bus</h3>
-    <p>Live tracking</p>
-  </div>
-
-  <div class="feature-card" onclick="go('booking.html')">
-    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png">
-    <h3>Book Ticket</h3>
-    <p>Book now</p>
-  </div>
-
-  <div class="feature-card" onclick="go('issue.html')">
-    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png">
-    <h3>Raise Issue</h3>
-    <p>Report issue</p>
-  </div>
-
-  <div class="feature-card" onclick="go('food.html')">
-    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
-    <h3>Order Food</h3>
-    <p>Coming soon</p>
-  </div>
-
-</div>
-
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="active">🏠 Home</div>
-  <div onclick="go('track.html')">📍 Track</div>
-  <div onclick="go('booking.html')">🎟️ Tickets</div>
-  <div onclick="go('orders.html')">🛍️ Orders</div>
-  <div onclick="go('profile.html')">👤 Profile</div>
+  <div class="feature-card" onclick="location.href='track.html'">📍 Track</div>
+  <div class="feature-card" onclick="location.href='booking.html'">🎟️ Book</div>
+  <div class="feature-card" onclick="location.href='ticket.html'">📄 Tickets</div>
+  <div class="feature-card" onclick="location.href='admin.html'">⚙️ Admin</div>
 </div>
 
 </div>
 
-<script src="home.js"></script>
+<script>
+function searchBus(){
+  let list = document.getElementById("busList");
+  list.innerHTML = "";
+
+  for(let i=1;i<=50;i++){
+    let bus = document.createElement("div");
+    bus.className = "bus-card";
+    bus.innerHTML = `
+      <b>MH15KW${1000+i}</b><br>
+      Pune → Mumbai<br>
+      Time: ${6+i}:00 AM<br>
+      <button onclick="location.href='booking.html'">Book</button>
+    `;
+    list.appendChild(bus);
+  }
+}
+</script>
+
 </body>
 </html>

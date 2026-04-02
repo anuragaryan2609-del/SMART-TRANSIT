@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📊 Admin Dashboard</h2>
+
+<div class="card">
+  <p>Total Buses: 120</p>
+  <p>Active Routes: 45</p>
+  <p>Tickets Booked Today: 320</p>
+</div>
+
+<div class="card">
+  <h3>Add New Bus</h3>
+  <input id="busNo" placeholder="Bus Number">
+  <button class="btn" onclick="addBus()">Add Bus</button>
+</div>
+
+<div class="card">
+  <h3>Bus List</h3>
+  <ul id="busList"></ul>
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

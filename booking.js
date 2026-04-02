@@ -1,69 +1,43 @@
 let container = document.getElementById("seatContainer");
+let selected = [];
 
-let selectedSeats = [];
-let price = 300;
+let num = 1;
 
-// create 10 rows (total 40 seats)
-let seatNumber = 1;
+for(let r=1;r<=10;r++){
 
-for(let row=1; row<=10; row++){
+  for(let i=0;i<2;i++) createSeat(num++);
 
-  // LEFT SIDE (2 seats)
-  for(let i=0; i<2; i++){
-    createSeat(seatNumber++);
-  }
+  let gap = document.createElement("div");
+  gap.className = "aisle";
+  container.appendChild(gap);
 
-  // AISLE
-  let aisle = document.createElement("div");
-  aisle.classList.add("aisle");
-  container.appendChild(aisle);
-
-  // RIGHT SIDE (2 seats)
-  for(let i=0; i<2; i++){
-    createSeat(seatNumber++);
-  }
+  for(let i=0;i<2;i++) createSeat(num++);
 }
 
-function createSeat(num){
-  let seat = document.createElement("div");
-  seat.classList.add("seat");
-  seat.innerText = num;
+function createSeat(n){
+  let s = document.createElement("div");
+  s.className = "seat";
+  s.innerText = n;
 
-  // random booked
-  if(Math.random() < 0.3){
-    seat.classList.add("booked");
+  if(Math.random()<0.3) s.classList.add("booked");
+
+  s.onclick = function(){
+    if(s.classList.contains("booked")) return;
+
+    s.classList.toggle("selected");
+
+    if(selected.includes(n)){
+      selected = selected.filter(x=>x!=n);
+    } else selected.push(n);
   }
 
-  seat.onclick = function(){
-
-    if(seat.classList.contains("booked")) return;
-
-    if(seat.classList.contains("selected")){
-      seat.classList.remove("selected");
-      selectedSeats = selectedSeats.filter(s => s != num);
-    } else {
-      seat.classList.add("selected");
-      selectedSeats.push(num);
-    }
-
-    update();
-  }
-
-  container.appendChild(seat);
+  container.appendChild(s);
 }
 
-function update(){
-  document.getElementById("selectedSeats").innerText =
-    selectedSeats.length ? selectedSeats.join(", ") : "None";
-
-  document.getElementById("totalPrice").innerText =
-    selectedSeats.length * price;
-}
-
-function goPayment(){
-  if(selectedSeats.length === 0){
-    alert("Select at least 1 seat");
+function goPay(){
+  if(selected.length==0){
+    alert("Select seat");
     return;
   }
-  window.location.href = "payment.html";
+  window.location.href="payment.html";
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Report Issue</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Report Issue</h2>
+
+<div class="grid">
+
+<div class="feature-card" onclick="selectIssue('Driver Issue')">👨‍✈️ Driver</div>
+
+<div class="feature-card" onclick="selectIssue('Bus Issue')">🚌 Bus</div>
+
+<div class="feature-card" onclick="selectIssue('Cleanliness')">🧹 Cleanliness</div>
+
+<div class="feature-card" onclick="selectIssue('Delay Problem')">⏱️ Delay</div>
+
+</div>
+
+<div class="card">
+<textarea id="desc" placeholder="Describe issue..." style="width:100%;height:80px;"></textarea>
+<button class="btn" onclick="submitIssue()">Submit</button>
+</div>
+
+</div>
+
+<script>
+let issueType="";
+
+function selectIssue(type){
+  issueType = type;
+  alert(type + " selected");
+}
+
+function submitIssue(){
+  if(issueType==""){
+    alert("Select issue");
+    return;
+  }
+
+  alert("Issue submitted ✅");
+  window.location.href="home.html";
+}
+</script>
+
+</body>
+</html>

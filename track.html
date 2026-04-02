@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Track</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
 <div class="container">
 
 <h2>Live Tracking</h2>
 
+<div class="card">
+Bus: MH15KW5678<br>
+Route: Nashik → Pune
+</div>
+
 <div class="map">
-  <div id="bus">🚌</div>
+<div id="bus">🚌</div>
 </div>
 
 </div>
@@ -20,13 +16,9 @@
 <script>
 let b=document.getElementById("bus");
 let p=0;
-
 setInterval(()=>{
-  p+=5;
-  b.style.left=p+"%";
-  if(p>90)p=0;
-},500);
+p+=2;
+b.style.left=p+"%";
+if(p>90)p=0;
+},200);
 </script>
-
-</body>
-</html>

@@ -406,3 +406,19 @@ input {
 .aisle {
   width: 20px;
 }
+.map {
+  width: 100%;
+  height: 200px;
+  background: #ddd;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+#bus {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 30px;
+}

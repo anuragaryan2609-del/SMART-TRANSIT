@@ -118,3 +118,4 @@ function showPopup(message) {
     popup.classList.remove("show");
   }, 2000);
 }
+document.body.style.scrollBehavior = "smooth";

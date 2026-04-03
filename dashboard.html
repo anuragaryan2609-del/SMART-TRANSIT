@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Transit - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="logo">
+                <i class="fas fa-bus"></i>
+                <h1>Smart Transit</h1>
+            </div>
+            <div class="user-info">
+                <span id="userName">Anurag Ayan</span>
+                <div class="rating">
+                    <i class="fas fa-star"></i> 4.5/5
+                </div>
+                <button onclick="logout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="user-stats">
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>4.5/5</h3>
+                <p>Rating</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bus"></i>
+                <h3 id="tripCount">47</h3>
+                <p>Trips</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-credit-card"></i>
+                <h3 id="transactionCount">52</h3>
+                <p>Transactions</p>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-grid">
+            <button class="action-card" onclick="showBookTicket()">
+                <i class="fas fa-ticket-alt"></i>
+                <span>Book Ticket</span>
+            </button>
+            <button class="action-card" onclick="showTrackBus()">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Track Bus</span>
+            </button>
+            <button class="action-card" onclick="showRaiseIssue()">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Raise Issue</span>
+            </button>
+            <button class="action-card" onclick="showOrderFood()">
+                <i class="fas fa-utensils"></i>
+                <span>Order Food</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Content Area -->
+        <div id="main-content">
+            <!-- Booking Section -->
+            <div class="booking-section">
+                <h2>Book Ticket</h2>
+                <div class="search-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>From</label>
+                            <select id="fromCity" class="city-select">
+                                <option value="">Select City</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>To</label>
+                            <select id="toCity" class="city-select">
+                                <option value="">Select City</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Date of Journey</label>
+                            <input type="date" id="travelDate" value="2026-04-03">
+                        </div>
+                        <button onclick="searchBuses()" class="search-btn">
+                            <i class="fas fa-search"></i> Search Buses
+                        </button>
+                    </div>
+                </div>
+                <div id="bus-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -3,117 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Transit - Book Bus Tickets Online</title>
+    <title>Smart Transit - Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <!-- Header with Language Switcher -->
-        <div class="top-header">
-            <div class="logo">
-                <i class="fas fa-bus"></i>
-                <h1>Smart Transit</h1>
-                <p>Your Journey, Our Priority</p>
-            </div>
-            <div class="language-selector">
-                <button class="lang-btn active" data-lang="en">English</button>
-                <button class="lang-btn" data-lang="hi">हिंदी</button>
-                <button class="lang-btn" data-lang="mr">मराठी</button>
-            </div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="stats-container">
-            <div class="stat-card">
-                <i class="fas fa-road"></i>
+        <!-- Top Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
                 <h3>500+</h3>
                 <p>Routes</p>
                 <small>Connecting Maharashtra</small>
             </div>
-            <div class="stat-card">
-                <i class="fas fa-users"></i>
+            <div class="stat-item">
                 <h3>1M+</h3>
                 <p>Travelers</p>
                 <small>Trust us daily</small>
             </div>
-            <div class="stat-card">
-                <i class="fas fa-headset"></i>
+            <div class="stat-item">
                 <h3>24/7</h3>
                 <p>Support</p>
                 <small>Always here for you</small>
             </div>
         </div>
 
-        <!-- Login Card -->
+        <!-- Language Switcher -->
+        <div class="language-bar">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="hi">हिंदी</button>
+            <button class="lang-btn" data-lang="mr">मराठी</button>
+        </div>
+
+        <!-- Main Login Card -->
         <div class="login-card">
-            <div class="login-tabs">
-                <button class="tab-btn active" data-tab="email">📧 Email Login</button>
-                <button class="tab-btn" data-tab="phone">📱 Phone Login</button>
-                <button class="tab-btn" data-tab="signup">✨ Create Account</button>
+            <h1>Smart Transit</h1>
+            <p class="tagline">Your Journey, Our Priority</p>
+            
+            <div class="login-options">
+                <button class="option-btn active" data-login="email">📧 Email Login</button>
+                <button class="option-btn" data-login="phone">📱 Phone Login</button>
+                <button class="option-btn" data-login="signup">✨ Create Account</button>
             </div>
 
             <!-- Email Login Form -->
-            <div id="email-login" class="tab-content active">
-                <form id="emailLoginForm">
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Login →</button>
-                </form>
+            <div id="email-login-form" class="login-form active">
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="emailInput" placeholder="Email Address" value="example@email.com">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="passwordInput" placeholder="Password" value="123456">
+                </div>
+                <button class="btn-primary" onclick="handleEmailLogin()">Login →</button>
             </div>
 
             <!-- Phone Login Form -->
-            <div id="phone-login" class="tab-content">
-                <form id="phoneLoginForm">
-                    <div class="input-group">
-                        <i class="fas fa-phone-alt"></i>
-                        <input type="tel" id="phoneInput" placeholder="Phone Number" pattern="[0-9]{10}" required>
+            <div id="phone-login-form" class="login-form">
+                <div class="input-field">
+                    <i class="fas fa-phone-alt"></i>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" value="8767783063">
+                </div>
+                <button class="btn-primary" onclick="sendOTP()">Send OTP →</button>
+                <div id="otp-section" style="display: none; margin-top: 15px;">
+                    <div class="input-field">
+                        <i class="fas fa-key"></i>
+                        <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6">
                     </div>
-                    <button type="button" id="sendOtpBtn" class="btn-primary">Send OTP</button>
-                    <div id="otpSection" style="display:none; margin-top: 15px;">
-                        <div class="input-group">
-                            <i class="fas fa-key"></i>
-                            <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6">
-                        </div>
-                        <button type="button" id="verifyOtpBtn" class="btn-primary">Verify OTP</button>
-                        <small style="display: block; text-align: center; margin-top: 10px;">Demo OTP: 123456</small>
-                    </div>
-                </form>
+                    <button class="btn-primary" onclick="verifyOTP()">Verify OTP →</button>
+                    <p class="demo-otp">Demo OTP: 123456</p>
+                </div>
             </div>
 
-            <!-- Sign Up Form -->
-            <div id="signup" class="tab-content">
-                <form id="signupForm">
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-phone-alt"></i>
-                        <input type="tel" placeholder="Phone Number" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Create Account →</button>
-                </form>
+            <!-- Create Account Form -->
+            <div id="signup-form" class="login-form">
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="fullName" placeholder="Full Name" value="John Doe">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signupEmail" placeholder="Email Address" value="example@email.com">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-phone-alt"></i>
+                    <input type="tel" id="signupPhone" placeholder="Phone Number" value="9876543210">
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signupPassword" placeholder="Password">
+                </div>
+                <button class="btn-primary" onclick="handleSignup()">Create Account →</button>
             </div>
         </div>
     </div>
 
     <script src="data.js"></script>
-    <script src="auth.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

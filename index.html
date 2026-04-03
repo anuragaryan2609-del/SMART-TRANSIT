@@ -1,31 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Transit</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Transit - Book Bus Tickets Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <!-- Header with Language Switcher -->
+        <div class="top-header">
+            <div class="logo">
+                <i class="fas fa-bus"></i>
+                <h1>Smart Transit</h1>
+                <p>Your Journey, Our Priority</p>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="hi">हिंदी</button>
+                <button class="lang-btn" data-lang="mr">मराठी</button>
+            </div>
+        </div>
 
-<div class="container">
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-road"></i>
+                <h3>500+</h3>
+                <p>Routes</p>
+                <small>Connecting Maharashtra</small>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>1M+</h3>
+                <p>Travelers</p>
+                <small>Trust us daily</small>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-headset"></i>
+                <h3>24/7</h3>
+                <p>Support</p>
+                <small>Always here for you</small>
+            </div>
+        </div>
 
-<div class="header">
-  <b>🚌 Smart Transit</b>
-</div>
+        <!-- Login Card -->
+        <div class="login-card">
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="email">📧 Email Login</button>
+                <button class="tab-btn" data-tab="phone">📱 Phone Login</button>
+                <button class="tab-btn" data-tab="signup">✨ Create Account</button>
+            </div>
 
-<img src="https://cdn-icons-png.flaticon.com/512/3448/3448339.png" class="bus-img">
+            <!-- Email Login Form -->
+            <div id="email-login" class="tab-content active">
+                <form id="emailLoginForm">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login →</button>
+                </form>
+            </div>
 
-<h2>Welcome to Smart Transit</h2>
-<p class="sub">Track • Book • Travel Smarter</p>
+            <!-- Phone Login Form -->
+            <div id="phone-login" class="tab-content">
+                <form id="phoneLoginForm">
+                    <div class="input-group">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" id="phoneInput" placeholder="Phone Number" pattern="[0-9]{10}" required>
+                    </div>
+                    <button type="button" id="sendOtpBtn" class="btn-primary">Send OTP</button>
+                    <div id="otpSection" style="display:none; margin-top: 15px;">
+                        <div class="input-group">
+                            <i class="fas fa-key"></i>
+                            <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6">
+                        </div>
+                        <button type="button" id="verifyOtpBtn" class="btn-primary">Verify OTP</button>
+                        <small style="display: block; text-align: center; margin-top: 10px;">Demo OTP: 123456</small>
+                    </div>
+                </form>
+            </div>
 
-<div class="card">
-<input id="mobile" placeholder="+91 Enter Mobile Number" maxlength="10">
-<button class="btn" onclick="sendOTP()">Send OTP</button>
-</div>
+            <!-- Sign Up Form -->
+            <div id="signup" class="tab-content">
+                <form id="signupForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account →</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-</div>
-
-<script src="script.js"></script>
+    <script src="data.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
